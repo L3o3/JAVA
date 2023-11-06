@@ -17,7 +17,7 @@ public class Programa {
 
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
 		System.out.print("Entre com o nome do departamento: ");
 		String nomeDepartamento = sc.nextLine();
@@ -33,13 +33,17 @@ public class Programa {
 		System.out.print("Quantos contratos para esse trabalhador: ");
 		int QuantidadeContrato = sc.nextInt();
 			for (int i = 1; i <= QuantidadeContrato; i ++) {
-				System.out.print("Entre com #" + i +" dado: ");
+				System.out.println("Entre com #" + i +" dado: ");
+				
 				System.out.print("Data (DD/MM/AAAA): ");
 				Date dataContrato = sdf.parse(sc.next());
+				
 				System.out.print("Valor por Hora: ");
 				Double valorPorHora = sc.nextDouble();
+				
 				System.out.print("Duração(horas): ");
 				int horas = sc.nextInt();
+				
 				HoraPorContrato contrato = new HoraPorContrato(dataContrato, valorPorHora, horas);
 				trabalhador.adicionaContrato(contrato);
 			}
@@ -53,7 +57,6 @@ public class Programa {
 		System.out.println("Departamento: " + trabalhador.getDepartamento().getNome());
 		System.out.println("Salario em " + mes_ano + ": " + String.format("%.2f", trabalhador.renda(ano, mes)));
 
-		
 		sc.close();
 	}
 
