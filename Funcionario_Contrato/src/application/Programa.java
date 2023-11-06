@@ -49,9 +49,9 @@ public class Programa {
 		String mes_ano = sc.next();
 		int mes = Integer.parseInt(mes_ano.substring(0,2));
 		int ano = Integer.parseInt(mes_ano.substring(3));
-		System.out.println("NOme: " + trabalhador.getNome());
+		System.out.println("Nome: " + trabalhador.getNome());
 		System.out.println("Departamento: " + trabalhador.getDepartamento().getNome());
-		System.out.println("Salario em " + mes_ano + ": " + String.format("%.2f", trabalhador.baseSalarial(ano, mes)));
+		System.out.println("Salario em " + mes_ano + ": " + String.format("%.2f", trabalhador.renda(ano, mes)));
 
 		
 		sc.close();

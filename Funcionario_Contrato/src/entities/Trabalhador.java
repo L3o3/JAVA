@@ -69,7 +69,7 @@ public class Trabalhador {
 	}
 	
 	public void removeContrato(HoraPorContrato contrato) {
-		contratos.add(contrato);
+		contratos.remove(contrato);
 	}
 	
 	public Double renda(int ano, int mes) {
@@ -86,5 +86,6 @@ public class Trabalhador {
 		return soma;
 	}
 
+	
 	
 }
