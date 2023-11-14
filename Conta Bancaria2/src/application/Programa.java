@@ -8,32 +8,18 @@ public class Programa {
 
 	public static void main(String[] args) {
 
-		Conta cont = new Conta(1001, "Leoe", 0.0);
-		ContaNegocio contN = new ContaNegocio(1002, "Maria", 0.0, 500.0);
+		Conta cont = new Conta(1001, "Leoe", 1000.0);
+		cont.saque(200.0);
+		System.out.println(cont.getSaldo());
 		
-		//UPCASTING
+		Conta cont1 = new ContaPoupanca(1002, "José", 3000.0, 0.01);
+		cont1.saque(300.0);
+		System.out.println(cont1.getSaldo());
 		
-		Conta cont1 = contN;
-		Conta cont2 = new ContaNegocio(1003, "Antônio", 0.0, 200.0);
-		Conta cont3 = new ContaPoupanca(1004, "João" , 0.0, 300.0);
+		Conta cont2 = new ContaNegocio(1003, "Bete", 500.0, 700.0);
+		cont2.saque(200.0);
+		System.out.println(cont2.getSaldo());
 		
-		//DOWNCAST
 		
-		ContaNegocio cont4 = (ContaNegocio)cont2;
-		cont4.emprestimo(100.0);
-		
-		//ContaNegocio cont5 = (ContaNegocio)cont3;
-		if (cont3 instanceof ContaNegocio) {
-			ContaNegocio cont5 = (ContaNegocio)cont3;
-			cont5.emprestimo(5000.0);
-			System.out.println("Emprestimo");
-		}
-		
-		if (cont3 instanceof ContaPoupanca) {
-			ContaPoupanca cont5 = (ContaPoupanca)cont3;
-			cont5.atualizaSaldo();
-			System.out.println("Saldo atualizado");
-		}
 	}
-
 }

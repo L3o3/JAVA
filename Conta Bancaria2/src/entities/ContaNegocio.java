@@ -28,6 +28,12 @@ public class ContaNegocio extends Conta {
 		}
 	}
 	
+	@Override
+	public void saque(Double Saldo) {
+		super.saque(Saldo);
+		saldo -= 2.0;
+	}
+	
 }	
 	
 	
