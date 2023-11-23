@@ -8,8 +8,8 @@ public class Empresarial extends Contribuinte {
 		super(nome, rendaAnual);
 		this.numeroDeFuncionario = numeroDeFuncionario;
 	}
-
-	public Integer getNumeroDeFuncionario() {
+	
+	public Integer GetNumeroDeFuncionario() {
 		return numeroDeFuncionario;
 	}
 
