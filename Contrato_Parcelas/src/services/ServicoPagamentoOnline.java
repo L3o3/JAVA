@@ -2,9 +2,7 @@ package services;
 
 public interface ServicoPagamentoOnline {
 
-	double taxaPagamento(double quantidade);
-	double juros(double quantidade, int meses);
-	
-	
+	double taxaPagamento(double saldo);
+	double juros(double saldo, int meses);
 	
 }

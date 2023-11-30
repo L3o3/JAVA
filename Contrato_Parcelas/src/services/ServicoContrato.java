@@ -1,6 +1,7 @@
 package services;
 
-import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
 
 import entities.Contrato;
 import entities.Parcelas;
@@ -14,10 +15,19 @@ public class ServicoContrato {
 	}
 	
 	public void processaContrato(Contrato contrato, int meses) {
-		contrato.getParcelas().add(new Parcelas(LocalDate.of(2018, 7, 25), 206.04));
-		contrato.getParcelas().add(new Parcelas(LocalDate.of(2018, 8, 25), 206.04));
-
+		double quotaBasica = contrato.getValorTotal() / meses;
+        for (int i = 1; i <= meses; i++) {
+            Date data = addMeses(contrato.getData(), i);
+            double atualizaQuota = quotaBasica + servicoPagamentoOnline.juros(quotaBasica, i);
+            double quotaTotal =  atualizaQuota + servicoPagamentoOnline.taxaPagamento(atualizaQuota);
+            contrato.addParcelas(new Parcelas(data, quotaTotal));
+        }
 	}
-	
-	
+        
+        private Date addMeses(Date data, int n) {
+    		Calendar cal = Calendar.getInstance();
+    		cal.setTime(data);	
+    		cal.add(Calendar.MONTH, n);
+    		return cal.getTime();
+	}
 }

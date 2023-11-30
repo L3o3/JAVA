@@ -1,26 +1,26 @@
 package entities;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Parcelas {
 
-	private static DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 	
-	private LocalDate data;
+	private Date data;
 	private Double quantidade;
 
-	public Parcelas(LocalDate data, Double quantidade) {
+	public Parcelas(Date data, Double quantidade) {
 		this.data = data;
 		this.quantidade = quantidade;
 	}
 
-	public LocalDate getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(LocalDate data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 
@@ -34,7 +34,7 @@ public class Parcelas {
 
 	@Override
 	public String toString() {
-		return data.format(fmt) + " - " + String.format("%.2f", quantidade);
+		return sdf.format(data) + " - " + String.format("%.2f", quantidade);
 	}
 	
 	
