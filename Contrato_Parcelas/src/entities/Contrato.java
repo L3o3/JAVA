@@ -1,18 +1,18 @@
 package entities;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Contrato {
 
 	private Integer numero;
-	private Date data;
+	private LocalDate data;
 	private Double valorTotal;
 	
 	private List<Parcelas> parcelas = new ArrayList<>();
 	
-	public Contrato(Integer numero, Date data, Double valorTotal) {
+	public Contrato(Integer numero, LocalDate data, Double valorTotal) {
 		this.numero = numero;
 		this.data = data;
 		this.valorTotal = valorTotal;
@@ -26,11 +26,11 @@ public class Contrato {
 		this.numero = numero;
 	}
 
-	public Date getData() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 
@@ -44,13 +44,5 @@ public class Contrato {
 
 	public List<Parcelas> getParcelas() {
 		return parcelas;
-	}
-
-	public void addParcelas(Parcelas parcela) {
-		parcelas.add(parcela);
-	}
-
-	public void removeParcelas(Parcelas parcela) {
-		parcelas.remove(parcela);
 	}
 }
