@@ -1,7 +1,6 @@
 package entities;
 
 public class Product {
-
 	private String name;
 	private Double price;
 
@@ -24,6 +23,10 @@ public class Product {
 
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+
+	public static void staticPriceUpdate(Product p) {
+		p.setPrice(p.getPrice() * 1.1);
 	}
 
 	@Override
